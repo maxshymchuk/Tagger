@@ -1,0 +1,17 @@
+@import './vars.css';
+
+.warning {
+    background-color: #FF000077;
+}
+
+.attention {
+    background-color: #0000CC44;
+}
+
+.with-radius {
+    border-radius: var(--radius);
+}
+
+.with-shadow {
+    box-shadow: 0 2px 5px 1px #AAA;
+}

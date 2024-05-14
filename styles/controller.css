@@ -1,0 +1,86 @@
+@import './vars.css';
+
+.controller {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.controller .textarea-wrapper {
+    padding: var(--unit);
+    padding-top: calc(var(--unit) / 2);
+    height: 100%;
+}
+
+.controller.input .textarea-wrapper textarea {
+    cursor: text;
+}
+
+.controller .textarea-additional {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0;
+    user-select: none;
+}
+
+.controller .textarea-additional .description {
+    flex-grow: 1;
+    align-self: center;
+    margin-right: auto;
+    font-size: 1rem;
+    padding: 0 var(--unit);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.controller .textarea-additional .control {
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #DDD;
+    border-right: none;
+    border-top: none;
+    font-size: 1rem;
+}
+
+.controller .textarea-additional .control:first-of-type {
+    border-bottom-left-radius: var(--radius);
+}
+
+.controller.input {
+    flex-grow: 1;
+}
+
+.controller.output {
+    flex-grow: 4;
+}
+
+.controller.input::before,
+.controller.output::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #00000011;
+    font-weight: bolder;
+    font-size: min(10vw, 10vh);
+    z-index: -1;
+}
+
+.controller.input::before {
+    content: 'INPUT';
+}
+
+.controller.output::before {
+    content: 'OUTPUT';
+}

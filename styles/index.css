@@ -1,0 +1,105 @@
+@import './mods.css';
+@import './vars.css';
+@import './reset.css';
+@import './controller.css';
+
+/* .header {
+    height: 50px;
+    margin: var(--unit);
+    margin-bottom: 0;
+    flex-shrink: 0;
+} */
+
+.sidemenu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: #FFF;
+    transition: transform .5s ease-in-out;
+    z-index: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    gap: var(--unit);
+}
+
+/* .sidemenu::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000066;
+    z-index: -1;
+} */
+
+/* .content {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+} */
+
+/* button {
+    display: block;
+}
+
+textarea {
+    width: 100%;
+}
+
+.tags {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background: #00000022;
+    border-radius: 5px;
+    padding: 2px 6px 2px 2px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 2px;
+    user-select: none;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+}
+
+#button {
+    height: 100%
+}
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 0.5em 0.5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+}
+
+details[open] {
+    padding: 0.5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+} */
