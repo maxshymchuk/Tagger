@@ -16,19 +16,18 @@ const tagsSectionsWrapper = document.getElementById('tags-sections-wrapper');
 const tagSectionTemplate = document.getElementById('tag-section-template')
 
 tagsSectionsWrapper.addEventListener('click', (e) => {
-    if (e.target.tagName === 'BUTTON') {
-        const set = new Set(input.value.split(' ').filter(i => !!i));
-        const isSelected = e.target.classList.contains('selected');
-        if (isSelected) {
-            e.target.classList.remove('selected');
-            set.delete(e.target.id.replace('tag-', ''));
-        } else {
-            e.target.classList.add('selected');
-            set.add(e.target.id.replace('tag-', ''));
-        }
-        input.value = [...set].join(' ');
-        operate(sortTags());
+    if (!e.target.tagName === 'BUTTON') return;
+    const set = new Set(input.value.split(' ').filter(i => !!i));
+    const newId = e.target.id.replace('tag-', '');
+    if (e.target.classList.contains('selected')) {
+        e.target.classList.remove('selected');
+        set.delete(newId);
+    } else {
+        e.target.classList.add('selected');
+        set.add(newId);
     }
+    input.value = [...set].join(' ');
+    operate(sortTags());
 });
 
 function createTagSection(key, tags) {
