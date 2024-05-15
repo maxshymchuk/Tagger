@@ -16,7 +16,7 @@
 .sidemenu .count-control {
     width: 80px;
     height: 30px;
-    border: 1px solid var(--border-color);
+    border: var(--border-width) solid var(--border-color);
 }
 
 .sidemenu .close-sidemenu {

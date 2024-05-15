@@ -1,6 +1,7 @@
 :root {
     --unit: 10px;
     --radius: 5px;
+    --border-width: 1px;
 
     --accent-color: #FF000077;
     --border-color: #DDD;
