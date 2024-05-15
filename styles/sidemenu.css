@@ -32,7 +32,7 @@
 }
 
 .sidemenu .scrollable-wrapper .tags-section .tags-title {
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: bold;
     word-wrap: break-word;
 }
@@ -45,7 +45,7 @@
 }
 
 .sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag {
-    min-width: 2rem;
+    min-width: 2em;
     padding: 5px 15px 5px 0;
     position: relative;
 }

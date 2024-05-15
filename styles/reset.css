@@ -5,13 +5,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: transparent;
     touch-action: manipulation;
-    font-size: 1rem;
+    font-size: var(--font-size);
 }
 
 html, body {
     overflow: hidden;
     height: 100%;
-    font-size: 16px;
 }
 
 body {
@@ -33,7 +32,7 @@ textarea {
     padding-right: calc(var(--unit));
     overflow-y: scroll;
     cursor: default;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 button {
@@ -42,7 +41,6 @@ button {
     border: none;
     padding: 0;
     cursor: pointer;
-    font-size: 1rem;
     color: #000;
 }
 

@@ -27,7 +27,7 @@
     flex-grow: 1;
     align-self: center;
     margin-right: auto;
-    font-size: 1rem;
+    font-size: var(--font-size);
     padding: 0 var(--unit);
     text-align: right;
 }
@@ -42,7 +42,7 @@
     border: var(--border-width) solid var(--border-color);
     border-right: none;
     border-top: none;
-    font-size: 1rem;
+    font-size: var(--font-size);
 }
 
 .controller .textarea-additional .control:first-of-type {
