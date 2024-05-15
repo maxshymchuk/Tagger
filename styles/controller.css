@@ -39,7 +39,7 @@
     align-items: center;
     width: 80px;
     height: 30px;
-    border: 1px solid #DDD;
+    border: 1px solid var(--border-color);
     border-right: none;
     border-top: none;
     font-size: 1rem;
@@ -51,7 +51,6 @@
 
 .controller.input {
     flex-grow: 1;
-    border-top: 1px solid #DDD;
 }
 
 .controller.output {
@@ -68,7 +67,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    color: #00000011;
+    color: #00000008;
     font-weight: bold;
     font-size: min(10vw, 10vh);
     z-index: -1;

@@ -9,3 +9,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.with-top-border {
+    border-top: 1px solid var(--border-color);
+}
