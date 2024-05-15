@@ -1,24 +1,61 @@
-// import { render as renderDetails } from './modules/details.js';
-
-// const button = document.getElementById('button');
-// const clear = document.getElementById('clear');
-
-// const tags = document.getElementById('tags');
-
-// function resetTags() {
-//     tags.querySelectorAll('input').forEach(i => i.checked = false);
-// }
-
-import { MAX_TAGS } from './constants/tags.js';
+import { MAX_TAGS, TAGS } from './constants/tags.js';
 
 const input = document.getElementById('input');
 const output = document.getElementById('output');
-const countControl = document.getElementById('count-control');
+
+const tagsControl = document.getElementById('tags-control');
+const countControls = document.querySelectorAll('.counter');
 const copyControl = document.getElementById('copy-control');
 const clearControl = document.getElementById('clear-control');
 
+const sidemenu = document.querySelector('.sidemenu');
+const closeSidemenu = document.querySelector('.close-sidemenu');
+
+const tagsSectionsWrapper = document.getElementById('tags-sections-wrapper');
+
+const tagSectionTemplate = document.getElementById('tag-section-template')
+
+tagsSectionsWrapper.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        const set = new Set(input.value.split(' ').filter(i => !!i));
+        const isSelected = e.target.classList.contains('selected');
+        if (isSelected) {
+            e.target.classList.remove('selected');
+            set.delete(e.target.id.replace('tag-', ''));
+        } else {
+            e.target.classList.add('selected');
+            set.add(e.target.id.replace('tag-', ''));
+        }
+        input.value = [...set].join(' ');
+        operate(sortTags());
+    }
+});
+
+function createTagSection(key, tags) {
+    const tagTemplate = tagSectionTemplate.content.querySelector('.tag');
+    const tagsSection = tagSectionTemplate.cloneNode(true).content.querySelector('.tags-section');
+    const titleDom = tagsSection.querySelector('.tags-title');
+    const wrapperDom = tagsSection.querySelector('.tags-wrapper');
+    titleDom.textContent = key;
+    wrapperDom.replaceChildren(...tags.map(tag => {
+        const element = tagTemplate.cloneNode(true);
+        element.setAttribute('id', `tag-${tag}`);
+        element.textContent = tag;
+        return element;
+    }));
+    tagsSectionsWrapper.append(tagsSection);
+}
+
+function initTags() {
+    Object.keys(TAGS).forEach(key => createTagSection(key, TAGS[key]));
+}
+
+function reset() {
+    tagsSectionsWrapper.querySelectorAll('button').forEach(button => button.classList.remove('selected'));
+}
+
 function sortTags() {
-    // resetTags();
+    reset();
     const set = new Set();
     const content = input.value
         .split(' ')
@@ -29,35 +66,19 @@ function sortTags() {
         .sort();
     for (const i of content) {
         set.add(i);
-        // const inputTag = tags.querySelector(`input#tag-${i}`);
-        // if (inputTag) inputTag.checked = true;
+        const button = tagsSectionsWrapper.querySelector(`#tag-${i}`);
+        if (button) button.classList.add('selected');
     }
     return set;
 }
 
-// tags.addEventListener('click', (e) => {
-//     if (e.target.tagName === 'INPUT') {
-//         const set = new Set(input.value.split(' '));
-//         e.target.checked ? set.add(e.target.id.replace('tag-', '')) : set.delete(e.target.id.replace('tag-', ''));
-//         input.value = [...set].join(' ');
-//         sortTags();
-//     }
-// });
-
-// button.addEventListener('click', sortTags);
-
-// clear.addEventListener('click', () => {
-//     input.value = '';
-//     sortTags();
-// });
-
 function operate(tags) {
     if (tags.size > MAX_TAGS) {
-        countControl.classList.add('warning');
+        countControls.forEach(count => count.classList.add('warning'));
     } else {
-        countControl.classList.remove('warning');
+        countControls.forEach(count => count.classList.remove('warning'))
     }
-    countControl.innerText = `${tags.size} / ${MAX_TAGS}`;
+    countControls.forEach(count => count.innerText = `${tags.size} / ${MAX_TAGS}`);
     output.value = [...tags].map(i => `#${i}`).join(' ');
 }
 
@@ -74,17 +95,23 @@ copyControl.addEventListener('click', async () => {
 clearControl.addEventListener('click', () => {
     if (confirm('Do you want to delete everything?')) {
         input.value = '';
-        operate(new Set());
+        operate(sortTags());
     }
 });
 
-input.addEventListener('input', (e) => {
-    const tags = sortTags(e);
-    operate(tags);
+tagsControl.addEventListener('click', () => {
+    sidemenu.style.transform = 'translateY(-100%)'
 });
 
-// function main() {
-//     renderDetails(tags);
-// }
+closeSidemenu.addEventListener('click', () => {
+    sidemenu.style.transform = 'translateY(0)'
+});
 
-// main();
+input.addEventListener('input', () => {
+    operate(sortTags());
+});
+
+window.addEventListener('load', () => {
+    countControls.forEach(count => count.innerText = `0 / ${MAX_TAGS}`);
+    initTags();
+});

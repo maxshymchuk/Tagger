@@ -1,0 +1,11 @@
+@media screen and (max-width: 550px) {
+    .controller.output .textarea-additional .description {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .controller.input .textarea-additional .description {
+        display: none;
+    }
+}

@@ -1,17 +1,11 @@
 @import './vars.css';
 
 .warning {
-    background-color: #FF000077;
+    background-color: var(--accent-color);
 }
 
-.attention {
-    background-color: #0000CC44;
-}
-
-.with-radius {
-    border-radius: var(--radius);
-}
-
-.with-shadow {
-    box-shadow: 0 2px 5px 1px #AAA;
+.with-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

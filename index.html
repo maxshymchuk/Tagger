@@ -7,49 +7,37 @@
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <!-- <template id="template-tag">
-        <div class="tag">
-            <input id="checkbox" type="checkbox">
-            <label></label>
-        </div>
-    </template>
-    <template id="template-tags">
-        <details>
-            <summary></summary>
-            <div class="tags"></div>
-        </details>
+    <template id="tag-section-template">
+        <section class="tags-section">
+            <article class="tags-title"></article>
+            <div class="tags-wrapper">
+                <button class="tag with-ellipsis"></button>
+            </div>
+        </section>
     </template>
 
-    <div style="width: 100%" id="tags"></div> -->
-
-    <!-- <header class="header with-shadow with-radius">
-        
-    </header> -->
-
-    <!-- <section class="recent">
-        Recent
-    </section> -->
-
-    <aside class="sidemenu with-shadow">
-        Sidemenu
-        <button id="close-sidemenu">Close</button>
+    <aside class="sidemenu">
+        <div class="counter"></div>
+        <div class="scrollable-wrapper" id="tags-sections-wrapper"></div>
+        <button class="close-sidemenu" id="close-sidemenu">Close</button>
     </aside>
 
     <main class="content">
-        <div class="controller output with-shadow with-radius">
+        <div class="controller output">
             <div class="textarea-additional">
-                <div class="control" id="count-control">
-                    0 / 30
+                <div class="description with-ellipsis">
+                    Unsupported symbols will be omitted, max tag length is 24 letters
                 </div>
+                <div class="counter"></div>
             </div>
             <div class="textarea-wrapper">
                 <textarea id="output" readonly></textarea>
             </div>
         </div>
-        <div class="controller input with-shadow with-radius">
+        <div class="controller input">
             <div class="textarea-additional">
-                <div class="description">
-                    Unsupported symbols will be omitted, max length is 24 letters
+                <div class="description with-ellipsis">
+                    You can enter tags faster by clicking "Tags" button
                 </div>
                 <button class="control" id="clear-control">
                     Clear
@@ -57,9 +45,9 @@
                 <button class="control" id="copy-control">
                     Copy
                 </button>
-                <!-- <button class="control" id="tags-control">
+                <button class="control" id="tags-control">
                     Tags
-                </button> -->
+                </button>
             </div>
             <div class="textarea-wrapper">
                 <textarea id="input"></textarea>
@@ -68,13 +56,5 @@
     </main>
 
     <script type="module" src="script.js"></script>
-    <!-- <script type="module" src="modules/details.js"></script>
-    <script type="module" src="modules/tags.js"></script> -->
-    
-    <!-- <script>
-        let f = false;
-        document.querySelector('#tags-control').addEventListener('click', () => document.querySelector('.sidemenu').style.transform = 'translateY(-100%)')
-        document.querySelector('#close-sidemenu').addEventListener('click', () => document.querySelector('.sidemenu').style.transform = 'translateY(0)')
-    </script> -->
 </body>
 </html>

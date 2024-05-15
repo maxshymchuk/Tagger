@@ -1,0 +1,69 @@
+@import './vars.css';
+
+.sidemenu {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: #FFF;
+    transition: transform .5s ease-in-out;
+    z-index: 1;
+    user-select: none;
+}
+
+.sidemenu .count-control {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #DDD;
+}
+
+.sidemenu .close-sidemenu {
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    border-top: 1px solid #DDD;
+}
+
+.sidemenu .scrollable-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding: calc(2 * var(--unit));
+}
+
+.sidemenu .scrollable-wrapper .tags-section .tags-title {
+    font-size: 2rem;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.sidemenu .scrollable-wrapper .tags-section .tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--unit);
+    margin: var(--unit) 0;
+}
+
+.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag {
+    min-width: 2rem;
+    padding: 5px 15px 5px 0;
+    position: relative;
+}
+
+.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag:hover {
+    box-shadow: none;
+}
+
+.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag.selected::before,
+.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
