@@ -1,5 +1,5 @@
-import { TAGS } from './constants.js';
 import { getMaxLength } from './storage.js';
+import { getPreset } from './url.js';
 
 const input = document.getElementById('input');
 const tagsControl = document.getElementById('tags-control');
@@ -12,7 +12,7 @@ tagsSectionsWrapper.addEventListener('click', handleTagClick);
 tagsControl.addEventListener('click', openMenu);
 closeTagsMenu.addEventListener('click', closeMenu);
 
-function openMenu() {
+function openMenu() { 
     tagsMenu.style.transform = 'translateY(-100%)';
 }
 
@@ -72,7 +72,8 @@ function sort() {
 }
 
 function init() {
-    Object.keys(TAGS).forEach(key => createTagSection(key, TAGS[key]));
+    const PRESET = getPreset();
+    Object.keys(PRESET).forEach(key => createTagSection(key, PRESET[key]));
 }
 
 export { 
