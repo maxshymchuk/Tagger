@@ -9,25 +9,38 @@
 <body>
     <template id="tag-section-template">
         <section class="tags-section">
-            <article class="tags-title"></article>
-            <div class="tags-wrapper">
+            <article class="title"></article>
+            <div class="section-wrapper">
                 <button class="tag with-ellipsis"></button>
             </div>
         </section>
     </template>
 
-    <aside class="sidemenu with-top-border">
+    <aside class="sidemenu with-top-border" id="tags-menu">
         <div class="counter"></div>
         <div class="scrollable-wrapper" id="tags-sections-wrapper"></div>
-        <button class="close-sidemenu with-top-border" id="close-sidemenu">Close</button>
+        <button class="close-sidemenu with-top-border" id="close-tags-menu">Close</button>
+    </aside>
+
+    <aside class="sidemenu with-top-border" id="settings-menu">
+        <div class="scrollable-wrapper">
+            <article class="title">Settings</article>
+            <div class="section-wrapper">
+                <label for="settings-input-length">Max tag length</label>
+                <input id="settings-input-length" type="number" min="1" step="1" />
+            </div>
+            <div class="section-wrapper">
+                <label for="settings-input-count">Max number of tags</label>
+                <input id="settings-input-count" type="number" min="1" step="1" />
+            </div>
+        </div>
+        <button class="close-sidemenu with-top-border" id="close-settings-menu">Save & Close</button>
     </aside>
 
     <main class="content">
         <div class="controller output with-top-border">
             <div class="textarea-additional">
-                <div class="description with-ellipsis">
-                    Unsupported symbols will be omitted, max tag length is 24 letters
-                </div>
+                <div class="description with-ellipsis" id="description"></div>
                 <div class="counter"></div>
             </div>
             <div class="textarea-wrapper">
@@ -39,6 +52,9 @@
                 <div class="description with-ellipsis">
                     You can enter tags faster by clicking "Tags" button
                 </div>
+                <button class="control" id="settings-control">
+                    Settings
+                </button>
                 <button class="control" id="clear-control">
                     Clear
                 </button>
@@ -55,6 +71,6 @@
         </div>
     </main>
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
 </body>
 </html>

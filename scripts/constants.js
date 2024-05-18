@@ -69,6 +69,8 @@ const TAGS = {
     ]
 }
 
-const MAX_TAGS = 30;
+const LOCAL_STORAGE_NAME = 'tagger-storage';
+const DEFAULT_MAX_TAGS = 30;
+const DEFAULT_MAX_LENGTH = 24;
 
-export { TAGS, MAX_TAGS }
+export { TAGS, DEFAULT_MAX_TAGS, DEFAULT_MAX_LENGTH, LOCAL_STORAGE_NAME }

@@ -11,6 +11,19 @@
     height: 100%;
 }
 
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.section-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--unit);
+    margin: var(--unit) 0;
+}
+
 .counter {
     display: inline-flex;
     flex-shrink: 0;

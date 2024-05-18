@@ -31,30 +31,17 @@
     padding: calc(2 * var(--unit));
 }
 
-.sidemenu .scrollable-wrapper .tags-section .tags-title {
-    font-size: 2rem;
-    font-weight: bold;
-    word-wrap: break-word;
-}
-
-.sidemenu .scrollable-wrapper .tags-section .tags-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--unit);
-    margin: var(--unit) 0;
-}
-
-.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag {
+.sidemenu .scrollable-wrapper .tags-section .tag {
     min-width: 2rem;
     padding: 5px 15px 5px 0;
     position: relative;
 }
 
-.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag:hover {
+.sidemenu .scrollable-wrapper .tags-section .tag:hover {
     box-shadow: none;
 }
 
-.sidemenu .scrollable-wrapper .tags-section .tags-wrapper .tag.selected::before {
+.sidemenu .scrollable-wrapper .tags-section .tag.selected::before {
     content: '';
     display: block;
     position: absolute;

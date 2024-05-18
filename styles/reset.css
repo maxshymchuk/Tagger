@@ -24,7 +24,8 @@ body {
     position: relative;
 }
 
-textarea {
+textarea,
+input {
     display: block;
     width: 100%;
     height: 100%;
@@ -34,7 +35,27 @@ textarea {
     padding: 0;
     padding-right: calc(var(--unit));
     overflow-y: scroll;
-    cursor: default;
+    font-size: 1.5rem;
+}
+
+input {
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+label {
     font-size: 1.5rem;
 }
 

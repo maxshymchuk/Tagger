@@ -12,8 +12,8 @@
     height: 100%;
 }
 
-.controller.input .textarea-wrapper textarea {
-    cursor: text;
+.controller.output .textarea-wrapper textarea {
+    cursor: default;
 }
 
 .controller .textarea-additional {
