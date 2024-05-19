@@ -25,7 +25,7 @@ function reset() {
 }
 
 function handleTagClick(e) {
-    if (!e.target.tagName === 'BUTTON') return;
+    if (e.target.tagName !== 'BUTTON') return;
     const set = new Set(input.value.split(' ').filter(i => !!i));
     const newId = e.target.id.replace('tag-', '');
     if (e.target.classList.contains('selected')) {
@@ -51,20 +51,20 @@ function createTagSection(key, tags) {
         element.textContent = tag;
         return element;
     }));
-    tagsSectionsWrapper.append(tagsSection);
+    return tagsSection;
 }
 
 function sort() {
+    reset();
     const set = new Set();
     const content = input.value
         .split(' ')
         .filter(i => !!i && i !== '#')
         .map(i => i.toLowerCase().replace(/[^\p{L}\p{N}_]+/gu, ''))
         .filter(i => !!i)
-        .map(i => i.substring(0, getMaxLength()))
         .sort();
     for (const i of content) {
-        set.add(i);
+        set.add(i.substring(0, getMaxLength()));
         const button = tagsSectionsWrapper.querySelector(`#tag-${i}`);
         if (button) button.classList.add('selected');
     }
@@ -73,7 +73,7 @@ function sort() {
 
 function init() {
     const PRESET = getPreset();
-    Object.keys(PRESET).forEach(key => createTagSection(key, PRESET[key]));
+    tagsSectionsWrapper.replaceChildren(...Object.keys(PRESET).map(key => createTagSection(key, PRESET[key])));
 }
 
 export { 
