@@ -5,4 +5,6 @@
 
     --accent-color: #FF000077;
     --border-color: #DDD;
+
+    --border: var(--border-width) solid var(--border-color);
 }
