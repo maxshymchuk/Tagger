@@ -1,4 +1,4 @@
-import { getStorage } from './storage.js';
+import { getMaxLength, getMaxTags } from './storage.js';
 import { LOCAL_STORAGE_NAME, DEFAULT_MAX_LENGTH, DEFAULT_MAX_TAGS } from './constants.js';
 
 const input = document.getElementById('input');
@@ -30,7 +30,8 @@ function closeMenu() {
 }
 
 function init() {
-    const { maxTags, maxLength } = getStorage();
+    const maxTags = getMaxTags();
+    const maxLength = getMaxLength();
     settingsInputLength.value = maxLength;
     settingsInputLength.placeholder = DEFAULT_MAX_LENGTH;
     settingsInputCount.value = maxTags;
