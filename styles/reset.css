@@ -37,6 +37,7 @@ input {
     overflow-y: scroll;
     font-size: 1.5rem;
     border-radius: 0;
+    -webkit-border-radius: 0;
 }
 
 input {
