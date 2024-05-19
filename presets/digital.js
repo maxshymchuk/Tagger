@@ -1,12 +1,12 @@
-import { CITIES, COUNTRIES, REGIONS, TYPES, WEATHER } from "./common.js";
+import { CITIES, COUNTRIES, REGIONS, VIEWS, WEATHER } from './common.js';
 
 const DIGITAL = {
     'base': [
         'digital',
         'digitalphotography'
     ],
-    'types': [
-        ...TYPES,
+    'views': [
+        ...VIEWS,
         'drone',
     ],
     'weather': [

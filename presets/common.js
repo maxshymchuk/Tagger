@@ -16,7 +16,7 @@ const CITIES = [
     'wroclaw',
 ]
 
-const TYPES = [
+const VIEWS = [
     'horizontal',
     'vertical',
     'cityscape',
@@ -33,4 +33,4 @@ const WEATHER = [
     'rain'
 ]
 
-export { REGIONS, COUNTRIES, CITIES, TYPES, WEATHER };
+export { REGIONS, COUNTRIES, CITIES, VIEWS, WEATHER };

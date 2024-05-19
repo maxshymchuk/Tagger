@@ -1,8 +1,8 @@
-import { CITIES, COUNTRIES, REGIONS, TYPES, WEATHER } from "./common.js";
+import { CITIES, COUNTRIES, REGIONS, VIEWS, WEATHER } from './common.js';
 
 const DEFAULT = {
-    'types': [
-        ...TYPES,
+    'views': [
+        ...VIEWS,
     ],
     'weather': [
         ...WEATHER,

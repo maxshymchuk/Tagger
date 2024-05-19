@@ -1,4 +1,4 @@
-import { CITIES, COUNTRIES, REGIONS, TYPES } from "./common.js";
+import { CITIES, COUNTRIES, REGIONS, VIEWS } from './common.js';
 
 const FILM = {
     'base': [
@@ -25,8 +25,8 @@ const FILM = {
         'sekor',
         'zuiko'
     ],
-    'types': [
-        ...TYPES,
+    'views': [
+        ...VIEWS,
     ],
     'places': [
         ...REGIONS,
