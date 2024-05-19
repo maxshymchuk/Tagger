@@ -7,7 +7,7 @@ const output = document.getElementById('output');
 const copyControl = document.getElementById('copy-control');
 const clearControl = document.getElementById('clear-control');
 const description = document.getElementById('description');
-const countControls = document.querySelectorAll('.counter');
+const countControls = document.querySelectorAll('.control.counter');
 
 input.addEventListener('input', update);
 window.addEventListener('load', init);
