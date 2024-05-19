@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: './client'
       - name: Install dependencies
         working-directory: ./client
         run: npm ci
