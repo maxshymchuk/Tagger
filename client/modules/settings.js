@@ -11,6 +11,17 @@ const settingsInputCount = document.getElementById('settings-input-count');
 settingsControl.addEventListener('click', openMenu);
 closeSettingsMenu.addEventListener('click', closeMenu);
 
+function isAllowedKey(key) {
+    return ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp'].includes(key);
+}
+
+function numbersOnly(e) {
+    if (isNaN(e.key) && !isAllowedKey(e.key)) e.preventDefault();
+}
+
+settingsInputLength.addEventListener('keydown', numbersOnly);
+settingsInputCount.addEventListener('keydown', numbersOnly);
+
 function save() {
     localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify({ 
         maxTags: settingsInputCount.value || DEFAULT_MAX_TAGS, 
