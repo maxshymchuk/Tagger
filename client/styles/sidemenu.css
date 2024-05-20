@@ -8,7 +8,7 @@
     position: absolute;
     top: 100%;
     background-color: #FFF;
-    transition: transform .33s ease-in-out;
+    transition: transform .8s cubic-bezier(.41,.07,.4,.99);
     z-index: 1;
     user-select: none;
 }
