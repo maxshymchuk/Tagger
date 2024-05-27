@@ -5,6 +5,24 @@
 @import './sidemenu.css';
 @import './media.css';
 
+.splashscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--max-layer);
+    background-color: rgba(var(--background-color));
+    color: rgba(var(--color));
+    font-size: min(10vw, 10vh);
+    transition-property: opacity, visibility;
+    transition-duration: .1s;
+    transition-delay: calc(var(--sidemenu-transition-duration) * 2);
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -12,7 +30,7 @@
 }
 
 .title {
-    font-size: 2rem;
+    font-size: var(--title-font);
     font-weight: bold;
     word-wrap: break-word;
 }

@@ -54,7 +54,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    color: #00000008;
+    color: rgba(var(--color), .05);
     font-weight: bold;
     font-size: min(10vw, 10vh);
     z-index: -1;

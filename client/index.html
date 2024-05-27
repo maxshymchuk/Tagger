@@ -5,8 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tagger</title>
     <link rel="stylesheet" href="./styles/index.css">
+
+    <!--  TEMP  -->
+    <style>
+        .temp-auth {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .temp-auth-title {
+            font-size: var(--title-font);
+        }
+
+        .temp-auth-button {
+            width: 100%;
+            max-width: 200px;
+            padding: 10px 20px;
+            border: var(--border);
+        }
+
+        .temp-auth-info {
+            font-size: 0.8rem;
+        }
+    </style>
+
 </head>
 <body>
+    <div class="splashscreen" id="splashscreen">
+        Tagger
+    </div>
+
     <template id="tag-section-template">
         <section class="tags-section">
             <article class="title"></article>
@@ -15,6 +48,16 @@
             </div>
         </section>
     </template>
+
+    <aside class="sidemenu with-border" id="auth-menu">
+        <div class="scrollable-wrapper temp-auth">
+            <div class="temp-auth-title">Auth</div>
+            <button class="temp-auth-button">Sign in with Apple</button>
+            <button class="temp-auth-button">Sign in with Google</button>
+            <div class="temp-auth-info">Auth feature is under development</div>
+        </div>
+        <button class="close-sidemenu with-top-border" id="close-auth-menu">Close</button>
+    </aside>
 
     <aside class="sidemenu with-border" id="tags-menu">
         <div class="control counter"></div>
