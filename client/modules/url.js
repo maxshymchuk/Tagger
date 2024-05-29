@@ -5,18 +5,22 @@ function get() {
     return new URLSearchParams(document.location.search);
 }
 
+function update(url) {
+    window.history.pushState({}, '', url);
+}
+
 function set(key, value) {
     if (!PARAMS_KEYS.includes(key)) return;
-    const params = new URLSearchParams(document.location.search);
+    const params = get();
     params.set(key, value);
-    window.location.search = params;
+    update(`${window.location.pathname}?${params.toString()}`);
 }
 
 function remove(key) {
     if (!PARAMS_KEYS.includes(key)) return;
-    const params = new URLSearchParams(document.location.search);
+    const params = get();
     params.delete(key);
-    window.location.search = params;
+    update(`${window.location.pathname}?${params.toString()}`);
 }
 
 function getPreset() {
