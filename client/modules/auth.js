@@ -19,7 +19,6 @@ async function init() {
     return isAuth;
 }
 
-const CLIENT_ID = '700459303665-591ui2giotet3r0shuoe6uerktsqsu87.apps.googleusercontent.com';
 const REDIRECT_URI = 'https://maxshymchuk.github.io';
 
 const AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
@@ -27,7 +26,7 @@ const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
 document.getElementById('auth_btn').addEventListener('click', () => {
-    const authUrl = `${AUTH_URL}?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=${encodeURIComponent(SCOPE)}&include_granted_scopes=true`;
+    const authUrl = `${AUTH_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=${encodeURIComponent(SCOPE)}&include_granted_scopes=true`;
 
     console.log(authUrl)
 
@@ -66,8 +65,8 @@ async function fetchToken(code) {
         },
         body: new URLSearchParams({
             code: code,
-            client_id: CLIENT_ID,
-            client_secret: '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',
+            client_id: import.meta.env.VITE_CLIENT_ID,
+            client_secret: import.meta.env.VITE_CLIENT_SECRET,
             redirect_uri: REDIRECT_URI,
             grant_type: 'authorization_code'
         })
