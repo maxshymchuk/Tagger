@@ -3,7 +3,6 @@ import { initSettings } from './settings.js';
 import { initTags, sortTags } from './tags.js';
 import { closeAuthMenu, initAuth, openAuthMenu } from './auth.js';
 
-const splashscreen = document.getElementById('splashscreen');
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 const copyControl = document.getElementById('copy-control');
@@ -47,8 +46,6 @@ clearControl.addEventListener('click', () => {
 
 async function init() {
     const isAuth = await initAuth();
-    splashscreen.style.opacity = '0';
-    splashscreen.style.visibility = 'hidden';
     if (isAuth) {
         closeAuthMenu();
     } else {

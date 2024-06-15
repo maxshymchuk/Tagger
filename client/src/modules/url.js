@@ -1,4 +1,4 @@
-import { TAGS } from '../presets/index.js';
+import { TAGS } from '../../presets/index.js';
 import { DEFAULT_PRESET_KEY, PARAMS_KEYS, PRESET_KEY } from './constants.js';
 
 function get() {
