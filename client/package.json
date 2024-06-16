@@ -1,17 +1,17 @@
 {
-  "name": "tagger",
-  "version": "0.0.1",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^5.2.11"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.17.2"
-  }
+    "name": "tagger-client",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build --emptyOutDir",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^5.2.11"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "^4.17.2"
+    }
 }

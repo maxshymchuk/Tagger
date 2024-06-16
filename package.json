@@ -3,6 +3,6 @@
     "scripts": {
         "build:fe": "cd client && npm i && npm run build",
         "build:be": "cd server && npm i && npm run build",
-        "build": "npm run build:fe && npm run build:be"
+        "build": "npm run build:be && npm run build:fe"
     }
 }

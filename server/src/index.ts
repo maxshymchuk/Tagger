@@ -61,7 +61,7 @@ async function createVercelOutput(sourcePath: string) {
     try {
         const files = await readdir(sourcePath);
 
-        const outputPath = resolve('.vercel/output');
+        const outputPath = resolve('../.vercel/output');
         log('Output path', outputPath);
 
         const configPath = resolve(outputPath, 'config.json');
