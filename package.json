@@ -1,8 +1,8 @@
 {
     "name": "tagger",
     "scripts": {
-        "build:fe": "cd client && npm run build",
-        "build:be": "cd server && npm run build",
+        "build:fe": "cd client && npm i && npm run build",
+        "build:be": "cd server && npm i && npm run build",
         "build": "npm run build:fe && npm run build:be"
     }
 }
