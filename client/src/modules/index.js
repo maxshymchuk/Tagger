@@ -1,7 +1,8 @@
-import { getMaxTags } from './storage.js';
+import { getMaxLength, getMaxTags } from './storage.js';
 import { initSettings } from './settings.js';
-import { initTags, sortTags } from './tags.js';
+import { initTags, updateTags } from './tags.js';
 import { closeAuthMenu, initAuth, openAuthMenu } from './auth.js';
+import { tokens } from '../classes/TokenCollection.ts';
 
 const input = document.getElementById('input');
 const output = document.getElementById('output');
@@ -13,19 +14,21 @@ const countControls = document.querySelectorAll('.control.counter');
 input.addEventListener('input', update);
 window.addEventListener('load', init);
 
-function operate(tags) {
+function operate(tokens) {
     const maxTags = getMaxTags();
-    if (tags.size > maxTags) {
+    if (tokens.collection.length > maxTags) {
         countControls.forEach(count => count.classList.add('warning'));
     } else {
         countControls.forEach(count => count.classList.remove('warning'))
     }
-    countControls.forEach(count => count.innerText = `${tags.size} / ${maxTags}`);
-    output.value = [...tags].map(i => `#${i}`).join(' ');
+    countControls.forEach(count => count.innerText = `${tokens.collection.length} / ${maxTags}`);
+    output.value = tokens.tags.join(' ');
 }
 
 function update() {
-    operate(sortTags());
+    tokens.fill(input.value)
+    operate(tokens);
+    updateTags();
 }
 
 copyControl.addEventListener('click', async () => {
@@ -55,5 +58,6 @@ async function init() {
     const { maxTags, maxLength } = initSettings();
     countControls.forEach(count => count.innerText = `0 / ${maxTags}`);
     description.innerText = `Unsupported symbols will be omitted, max tag length is ${maxLength} letters`;
+    tokens.max = getMaxLength();
     initTags();
 }

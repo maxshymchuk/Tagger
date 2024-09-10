@@ -1,5 +1,5 @@
-import { getMaxLength } from './storage.js';
 import { getPreset } from './url.js';
+import { tokens } from '../classes/TokenCollection.ts';
 
 const input = document.getElementById('input');
 const tagsControl = document.getElementById('tags-control');
@@ -26,16 +26,14 @@ function reset() {
 
 function handleTagClick(e) {
     if (e.target.tagName !== 'BUTTON') return;
-    const set = new Set(input.value.split(' ').filter(i => !!i));
-    const newId = e.target.id.replace('tag-', '');
     if (e.target.classList.contains('selected')) {
         e.target.classList.remove('selected');
-        set.delete(newId);
+        tokens.remove(e.target.textContent);
     } else {
         e.target.classList.add('selected');
-        set.add(newId);
+        tokens.add(e.target.textContent, 0);
     }
-    input.value = [...set].join(' ');
+    input.value = tokens.array.join(' ');
     input.dispatchEvent(new Event('input'));
 }
 
@@ -54,21 +52,13 @@ function createTagSection(key, tags) {
     return tagsSection;
 }
 
-function sort() {
-    reset();
-    const set = new Set();
-    const content = input.value
-        .split(' ')
-        .filter(i => !!i && i !== '#')
-        .map(i => i.toLowerCase().replace(/[^\p{L}\p{N}_]+/gu, ''))
-        .filter(i => !!i)
-        .sort();
-    for (const i of content) {
-        set.add(i.substring(0, getMaxLength()));
-        const button = tagsSectionsWrapper.querySelector(`#tag-${i}`);
+
+
+function update() {
+    for (const token of tokens.array) {
+        const button = tagsSectionsWrapper.querySelector(`#tag-${token}`);
         if (button) button.classList.add('selected');
     }
-    return set;
 }
 
 function init() {
@@ -78,7 +68,7 @@ function init() {
 
 export { 
     init as initTags,
-    sort as sortTags,
+    update as updateTags,
     reset as resetTags,
     openMenu as openTagsMenu, 
     closeMenu as closeTagsMenu

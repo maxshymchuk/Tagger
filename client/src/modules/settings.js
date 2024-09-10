@@ -1,5 +1,6 @@
 import { getMaxLength, getMaxTags } from './storage.js';
-import { LOCAL_STORAGE_NAME, DEFAULT_MAX_LENGTH, DEFAULT_MAX_TAGS } from './constants.js';
+import { LOCAL_STORAGE_NAME, DEFAULT_MAX_LENGTH, DEFAULT_MAX_TAGS } from './constants';
+import { tokens } from '../classes/TokenCollection.ts';
 
 const input = document.getElementById('input');
 const settingsControl = document.getElementById('settings-control');
@@ -27,6 +28,7 @@ function save() {
         maxTags: settingsInputCount.value || DEFAULT_MAX_TAGS, 
         maxLength: settingsInputLength.value || DEFAULT_MAX_LENGTH
     }));
+    tokens.max = getMaxLength();
     window.dispatchEvent(new Event('load'));
     input.dispatchEvent(new Event('input'));
 }

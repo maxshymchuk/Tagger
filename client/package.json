@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
+        "@types/node": "^22.5.4",
         "vite": "^5.2.11"
     },
     "optionalDependencies": {

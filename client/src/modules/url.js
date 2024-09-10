@@ -1,5 +1,5 @@
 import { TAGS } from '../../presets/index.js';
-import { DEFAULT_PRESET_KEY, PARAMS_KEYS, PRESET_KEY } from './constants.js';
+import { DEFAULT_PRESET_KEY, PARAMS_KEYS, PRESET_KEY } from './constants';
 
 function get() {
     return new URLSearchParams(document.location.search);

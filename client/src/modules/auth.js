@@ -4,7 +4,7 @@ const closeAuthMenu = document.getElementById('close-auth-menu');
 closeAuthMenu.addEventListener('click', closeMenu);
 
 // temp
-let isAuth = false;
+let isAuth = true;
 
 function auth() {
     isAuth = true;

@@ -1,4 +1,4 @@
-import { DEFAULT_MAX_TAGS, DEFAULT_MAX_LENGTH, LOCAL_STORAGE_NAME } from './constants.js';
+import { DEFAULT_MAX_TAGS, DEFAULT_MAX_LENGTH, LOCAL_STORAGE_NAME } from './constants';
 
 function getStorage() {
     return JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAME)) ?? {};
